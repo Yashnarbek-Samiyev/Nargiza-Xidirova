@@ -1,0 +1,2702 @@
+/* ==========================================================================
+   XIDIROVA NARGIZAXON O'RINOVNA - RASMIY ILMIY PORTALI
+   Yo'nalish: Tarix, Tasavvuf (Xojagon-Naqshbandiya), Qo'lyozmalar, Temuriylar
+   Dizayn Falsafasi: Qadimiy Sharq Qo'lyozmalari va Zamonaviy Akademik Matbaa Uyg'unligi
+   (Sun'iy intellekt neon/gradient belgilarisiz, haqiqiy akademik mezonlarda)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Outfit:wght@350;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   RANG TIZIMI (COLOR SYSTEM): TUNGI VA TONGI REJIM
+   ========================================================================== */
+:root {
+  /* TUNGI REJIM (DEEP SCHOLARLY ARCHIVE) */
+  --bg-primary: #0a0f1d;
+  --bg-secondary: #0f172a;
+  --bg-surface: #141f36;
+  --bg-surface-elevated: #1a2744;
+  --bg-card: rgba(18, 28, 49, 0.85);
+  --bg-card-hover: rgba(24, 38, 66, 0.95);
+
+  /* Tabiiy Antik Tilla (Neon emas, qimmatbaho zarhal va folga tilla) */
+  --gold-primary: #c5a059;
+  --gold-secondary: #dfbe78;
+  --gold-subtle: rgba(197, 160, 89, 0.14);
+  --gold-border: rgba(197, 160, 89, 0.28);
+  --gold-border-bright: rgba(223, 190, 120, 0.55);
+
+  /* Samarqand Koshini va Lo'juvard Moviy (Registan Lapis & Azure) */
+  --azure-primary: #1e6091;
+  --azure-light: #38bdf8;
+  --azure-subtle: rgba(30, 96, 145, 0.15);
+  --azure-border: rgba(56, 189, 248, 0.25);
+
+  /* Matn Ranglari (High Legibility & Serenity) */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #dfbe78;
+
+  /* Ramkalar va Soyalar (Tabiiy, chuqur, neon emas) */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(197, 160, 89, 0.22);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-elevated: 0 12px 35px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 4px 24px rgba(197, 160, 89, 0.16);
+
+  /* Tipografiya (Yangi nafis akademik shriftlar: Marcellus, Cormorant Garamond, Outfit) */
+  --font-title: 'Marcellus', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+
+  /* Silliq o'tishlar */
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* TONGI REJIM (SERENE ROYAL ACADEMIC - KO'ZNI CHARCHOTMAYDIGAN SOKIN RANGLLAR)
+   Nafis toza oq-feruza tus, chuqur lojuvard ko'k va mat bronza urg'ulari */
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+
+  /* Qirollik Lojuvard Sapfiri va Yumshoq Mat Bronza */
+  --gold-primary: #0e3a66;
+  --gold-secondary: #854d0e;
+  --gold-subtle: rgba(14, 58, 102, 0.05);
+  --gold-border: rgba(14, 58, 102, 0.12);
+  --gold-border-bright: rgba(14, 58, 102, 0.35);
+
+  /* Tongi Akademik Moviy */
+  --azure-primary: #0f4c81;
+  --azure-light: #0284c7;
+  --azure-subtle: rgba(15, 76, 129, 0.05);
+  --azure-border: rgba(15, 76, 129, 0.15);
+
+  /* Matn Ranglari (Eng yuqori o'qilish va ko'z xotirjamligi) */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-accent: #0e3a66;
+
+  /* Yumshoq, tabiiy soyalar va ramkalar */
+  --border-subtle: rgba(15, 23, 42, 0.07);
+  --border-card: #e2e8f0;
+  --shadow-subtle: 0 2px 10px rgba(15, 23, 42, 0.04);
+  --shadow-elevated: 0 10px 25px -4px rgba(15, 23, 42, 0.07);
+  --shadow-gold: 0 4px 16px rgba(14, 58, 102, 0.12);
+}
+
+/* ==========================================================================
+   BAZA VA STRUKTURA
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Canvas & Sharqona Fon */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.75;
+}
+
+[data-theme="light"] #particles-canvas {
+  opacity: 0.65;
+}
+
+.oriental-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(circle at 12% 18%, var(--azure-subtle) 0%, transparent 40%),
+    radial-gradient(circle at 88% 82%, var(--gold-subtle) 0%, transparent 45%);
+}
+
+[data-theme="light"] .oriental-bg-overlay {
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(14, 58, 102, 0.025) 0%, transparent 45%),
+    radial-gradient(circle at 90% 85%, rgba(146, 96, 25, 0.02) 0%, transparent 45%);
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Sarlavhalar */
+h1, h2, h3, h4, .academic-title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.015em;
+}
+
+/* Nozik Oltin va Moviy Urg'ular (Tabiiy mat) */
+.gold-text {
+  color: var(--gold-secondary);
+  font-weight: 600;
+}
+
+[data-theme="light"] .gold-text {
+  color: var(--gold-primary);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, var(--gold-secondary) 0%, var(--gold-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+[data-theme="light"] .gold-gradient-text {
+  background: linear-gradient(135deg, #0e3a66 0%, #1e5a96 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.azure-text {
+  color: var(--azure-light);
+}
+
+[data-theme="light"] .azure-text {
+  color: #0284c7;
+}
+
+/* ==========================================================================
+   FAN YO'NALISHIGA ALOQADOR ANIMATSIYALAR
+   (Islimiy Geometriya, Astrolyabiya, Suzuvchi Portret va Zarrachalar)
+   ========================================================================== */
+
+/* 1. Girih / Islimiy Naqsh va Qadimiy Astrolyabiya Qo'shaloq Aylanishi */
+.girih-sacred-geometry {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 340px;
+  height: 340px;
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 0;
+  transform-origin: center center;
+}
+
+[data-theme="light"] .girih-sacred-geometry {
+  opacity: 0.07;
+  color: #0e3a66;
+}
+
+.girih-sacred-geometry .astrolabe-ring-outer {
+  transform-origin: 100px 100px;
+  animation: rotateClockwise 110s linear infinite;
+}
+
+.girih-sacred-geometry .astrolabe-star-inner {
+  transform-origin: 100px 100px;
+  animation: rotateCounterClockwise 75s linear infinite;
+}
+
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* 2. Bo'lim Ajratgichidagi Qadimiy Qo'lyozma Unvoni (Cartouche) */
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 18px auto 0;
+  max-width: 260px;
+}
+
+.ornament-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+}
+
+.ornament-divider .ornament-symbol {
+  color: var(--gold-primary);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulseOrnament 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseOrnament {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 4px var(--gold-primary)); }
+}
+
+/* 3. Kartochkalarga Qadimiy Qo'lyozma Burchagi Effekti */
+.manuscript-corner-card {
+  position: relative;
+}
+
+.manuscript-corner-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 24px 24px 0;
+  border-color: transparent var(--gold-border) transparent transparent;
+  transition: border-color var(--transition-smooth);
+  opacity: 0.6;
+}
+
+.manuscript-corner-card:hover::after {
+  border-color: transparent var(--gold-secondary) transparent transparent;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   NAVIGATSIYA
+   ========================================================================== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(10, 15, 29, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-border);
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .site-nav {
+  background: rgba(248, 250, 252, 0.94);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.site-nav.scrolled {
+  box-shadow: var(--shadow-subtle);
+  background: rgba(10, 15, 29, 0.98);
+}
+
+[data-theme="light"] .site-nav.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  gap: 3px;
+  transition: transform var(--transition-smooth);
+}
+
+.brand-wrapper:hover {
+  transform: translateY(-1px);
+}
+
+.brand-text h2 {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+  transition: color var(--transition-smooth);
+}
+
+.brand-wrapper:hover .brand-text h2 {
+  color: var(--gold-primary);
+}
+
+.brand-text p {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--gold-secondary);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+[data-theme="light"] .brand-text p {
+  color: #0e3a66;
+  opacity: 0.85;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color var(--transition-smooth);
+  position: relative;
+  padding: 8px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-secondary);
+}
+
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-links a.active {
+  color: var(--gold-primary);
+}
+
+/* Dropdown Menu (Submenu) */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.nav-item-dropdown > a {
+  cursor: pointer;
+}
+
+.nav-item-dropdown > a i.fa-chevron-down {
+  font-size: 0.65rem;
+  transition: transform var(--transition-smooth);
+}
+
+.nav-item-dropdown:hover > a i.fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  min-width: 230px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--gold-border);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: var(--shadow-elevated);
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-smooth);
+  z-index: 120;
+}
+
+[data-theme="light"] .dropdown-menu {
+  background: #ffffff;
+  border-color: var(--border-card);
+}
+
+.nav-item-dropdown:hover .dropdown-menu,
+.nav-item-dropdown:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  margin: 2px 0;
+}
+
+.dropdown-menu a {
+  padding: 8px 14px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown-menu a i {
+  color: var(--gold-primary);
+  width: 16px;
+  text-align: center;
+}
+
+.dropdown-menu a:hover {
+  background: var(--gold-subtle);
+  color: var(--gold-secondary);
+}
+
+[data-theme="light"] .dropdown-menu a:hover {
+  color: var(--gold-primary);
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+
+.mobile-cv-item {
+  display: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Til Almashtirgich (Language Switcher UZ / RU / EN) */
+.lang-switch-group {
+  display: inline-flex;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-card);
+  border-radius: 8px;
+  padding: 2px;
+  gap: 2px;
+}
+
+[data-theme="light"] .lang-switch-group {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  font-family: var(--font-sans);
+}
+
+.lang-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-btn.active {
+  background: var(--gold-primary);
+  color: #0c131f;
+}
+
+[data-theme="light"] .lang-btn.active {
+  background: #0e3a66;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(14, 58, 102, 0.22);
+}
+
+.theme-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  border: 1px solid var(--gold-border);
+  background: var(--gold-subtle);
+  color: var(--gold-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .theme-toggle-btn {
+  background: #f1f5f9;
+  color: #0e3a66;
+  border-color: #e2e8f0;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+  background: #e2e8f0;
+  color: #0e3a66;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--gold-border);
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   TUGMALAR (BUTTONS) - AKADEMIK VA SALOBATLI
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 150%;
+}
+
+.btn-primary {
+  background: var(--gold-primary);
+  color: #0d1424;
+  border-color: var(--gold-secondary);
+}
+
+[data-theme="light"] .btn-primary {
+  background: linear-gradient(135deg, #0e3a66 0%, #174b80 100%);
+  color: #ffffff;
+  border-color: #0e3a66;
+  box-shadow: 0 4px 14px rgba(14, 58, 102, 0.22);
+}
+
+.btn-primary:hover {
+  background: var(--gold-secondary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+[data-theme="light"] .btn-primary:hover {
+  background: linear-gradient(135deg, #134679 0%, #0c3359 100%);
+  box-shadow: 0 8px 22px rgba(14, 58, 102, 0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
+
+[data-theme="light"] .btn-secondary {
+  background: #ffffff;
+  color: #1e293b;
+  border-color: #cbd5e1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--gold-border);
+  color: var(--gold-secondary);
+  transform: translateY(-3px);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0e3a66;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--gold-secondary);
+  border-color: var(--gold-border);
+}
+
+[data-theme="light"] .btn-outline-gold {
+  color: #0e3a66;
+  border-color: rgba(14, 58, 102, 0.32);
+  background: rgba(14, 58, 102, 0.04);
+}
+
+.btn-outline-gold:hover {
+  background: var(--gold-subtle);
+  border-color: var(--gold-primary);
+  transform: translateY(-3px);
+}
+
+[data-theme="light"] .btn-outline-gold:hover {
+  background: rgba(14, 58, 102, 0.09);
+  border-color: #0e3a66;
+  color: #0e3a66;
+  box-shadow: 0 6px 16px rgba(14, 58, 102, 0.12);
+}
+
+.btn-sm {
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   HERO VA DASHBOARD (USTOZ PORTRETI VA MA'LUMOT)
+   ========================================================================== */
+.hero-section {
+  padding-top: 130px;
+  padding-bottom: 70px;
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.university-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--azure-subtle);
+  border: 1px solid var(--azure-border);
+  border-radius: 6px;
+  color: var(--azure-light);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+[data-theme="light"] .university-badge {
+  color: var(--azure-primary);
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.18;
+  margin-bottom: 12px;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--gold-secondary);
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+[data-theme="light"] .hero-subtitle {
+  color: var(--gold-primary);
+}
+
+.hero-degree-tag {
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.hero-bio {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+/* Statistika hisoblagichlari */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  box-shadow: var(--shadow-subtle);
+}
+
+[data-theme="light"] .hero-stats {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+}
+
+.stat-item {
+  text-align: center;
+  border-right: 1px solid var(--border-subtle);
+  padding: 0 6px;
+}
+
+[data-theme="light"] .stat-item {
+  border-right-color: #e2e8f0;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--font-title);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   ILMIY MANBALAR VA KOORDINATALAR HARAKATI (SCIENCE MERIDIAN TICKER)
+   ========================================================================== */
+.science-meridian-ticker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 14px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .science-meridian-ticker {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+}
+
+.science-meridian-ticker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--azure-light), var(--gold-primary));
+}
+
+.meridian-icon-pulse {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-secondary);
+  font-size: 1.25rem;
+  animation: compassPulse 4s ease-in-out infinite;
+}
+
+[data-theme="light"] .meridian-icon-pulse {
+  background: rgba(14, 58, 102, 0.06);
+  border-color: rgba(14, 58, 102, 0.18);
+  color: #0e3a66;
+}
+
+.meridian-icon-pulse i {
+  animation: compassSpin 20s linear infinite;
+}
+
+@keyframes compassSpin {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes compassPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); box-shadow: 0 0 16px rgba(14, 58, 102, 0.2); }
+}
+
+.meridian-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meridian-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.meridian-badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--azure-subtle);
+  color: var(--azure-light);
+  border: 1px solid var(--azure-border);
+}
+
+[data-theme="light"] .meridian-badge {
+  background: rgba(14, 58, 102, 0.08);
+  color: #0e3a66;
+  border-color: rgba(14, 58, 102, 0.18);
+}
+
+.meridian-title strong {
+  font-family: var(--font-title);
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  letter-spacing: 0.015em;
+}
+
+.meridian-coordinates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.meridian-coordinates i {
+  color: var(--gold-secondary);
+  font-size: 0.75rem;
+}
+
+[data-theme="light"] .meridian-coordinates i {
+  color: #854d0e;
+}
+
+.coord-dot {
+  color: var(--border-card);
+}
+
+.manuscript-stamp {
+  font-weight: 600;
+  color: var(--gold-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+[data-theme="light"] .manuscript-stamp {
+  color: #0e3a66;
+}
+
+/* ==========================================================================
+   HARAKATLANUVCHI FAN ASTROLYABIYASI VA QO'LYOZMALAR ORBITASI
+   ========================================================================== */
+.portrait-dashboard-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.astrolabe-science-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 580px;
+  height: 580px;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.astrolabe-ring-outer-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--gold-primary);
+  opacity: 0.65;
+  transform-origin: center center;
+  animation: rotateAstrolabeOuter 95s linear infinite;
+}
+
+[data-theme="light"] .astrolabe-ring-outer-svg {
+  color: #0e3a66;
+  opacity: 0.75;
+}
+
+.astrolabe-star-inner-svg {
+  position: absolute;
+  width: 82%;
+  height: 82%;
+  color: var(--azure-light);
+  opacity: 0.55;
+  transform-origin: center center;
+  animation: rotateAstrolabeInner 65s linear infinite reverse;
+}
+
+[data-theme="light"] .astrolabe-star-inner-svg {
+  color: #854d0e;
+  opacity: 0.65;
+}
+
+@keyframes rotateAstrolabeOuter {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateAstrolabeInner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* 4 ta Ilmiy Ramzning Doimiy Orbital Harakati */
+.science-orbit-track {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  border: 1px dashed rgba(197, 160, 89, 0.35);
+  animation: orbitTrackSpin 42s linear infinite;
+}
+
+[data-theme="light"] .science-orbit-track {
+  border-color: rgba(14, 58, 102, 0.28);
+}
+
+@keyframes orbitTrackSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.science-orbit-node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--gold-border-bright);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  color: var(--gold-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  animation: orbitNodeCounterSpin 42s linear infinite reverse;
+}
+
+[data-theme="light"] .science-orbit-node {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(14, 58, 102, 0.28);
+  color: #0e3a66;
+  box-shadow: 0 6px 20px rgba(14, 58, 102, 0.15);
+}
+
+.science-orbit-node i {
+  font-size: 0.88rem;
+  color: var(--azure-light);
+}
+
+[data-theme="light"] .science-orbit-node i {
+  color: #0284c7;
+}
+
+@keyframes orbitNodeCounterSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.science-orbit-node.node-1 {
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.science-orbit-node.node-2 {
+  top: 50%;
+  right: -28px;
+  transform: translateY(-50%);
+}
+
+.science-orbit-node.node-3 {
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.science-orbit-node.node-4 {
+  top: 50%;
+  left: -28px;
+  transform: translateY(-50%);
+}
+
+.portrait-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow-elevated);
+  transition: all var(--transition-smooth);
+  animation: portraitFloat 7s ease-in-out infinite alternate;
+}
+
+@keyframes portraitFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-7px); }
+}
+
+[data-theme="light"] .portrait-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 12px 35px -6px rgba(15, 23, 42, 0.08);
+}
+
+.portrait-card:hover {
+  border-color: var(--gold-border-bright);
+}
+
+/* Sharqona Arka Ramkasi (Registon va Qo'lyozma Arki) */
+.arch-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.05;
+  border-radius: 16px 16px 12px 12px;
+  overflow: hidden;
+  background: #080e1b;
+  border: 2px solid var(--gold-primary);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .arch-frame {
+  background: #f1f5f9;
+  border: 2px solid #0e3a66;
+  box-shadow: inset 0 0 15px rgba(15, 23, 42, 0.06);
+}
+
+.arch-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--gold-border);
+  margin: 5px;
+  border-radius: 12px 12px 8px 8px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* Suzuvchi Nishonlar */
+.floating-badge {
+  position: absolute;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+}
+
+[data-theme="light"] .floating-badge {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.07);
+}
+
+.floating-badge.badge-top-left {
+  top: 10px;
+  left: -15px;
+  animation: badgeFloatTop 5s ease-in-out infinite alternate;
+}
+
+.floating-badge.badge-bottom-right {
+  bottom: 24px;
+  right: -15px;
+  border-color: var(--azure-border);
+  animation: badgeFloatBottom 5.5s ease-in-out infinite alternate 0.5s;
+}
+
+@keyframes badgeFloatTop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+@keyframes badgeFloatBottom {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(5px); }
+}
+
+.floating-badge i {
+  font-size: 1.1rem;
+  color: var(--gold-primary);
+}
+
+.floating-badge.badge-bottom-right i {
+  color: var(--azure-light);
+}
+
+[data-theme="light"] .floating-badge.badge-bottom-right i {
+  color: var(--azure-primary);
+}
+
+.floating-badge .badge-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.floating-badge .badge-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   BO'LIMLARNING STANDART STRUKTURASI
+   ========================================================================== */
+.section-padding {
+  padding: 85px 0;
+  position: relative;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 45px auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+[data-theme="light"] .section-tag {
+  color: var(--gold-primary);
+}
+
+.section-title {
+  font-size: 2.15rem;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESEARCH PILLARS (YO'NALISHLAR)
+   ========================================================================== */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 24px;
+}
+
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 28px 22px;
+  position: relative;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="light"] .pillar-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-border-bright);
+  box-shadow: 0 12px 28px rgba(14, 58, 102, 0.12);
+}
+
+.pillar-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--gold-primary);
+  margin-bottom: 18px;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .pillar-icon-box {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #0e3a66;
+}
+
+.pillar-card:hover .pillar-icon-box {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.pillar-badge {
+  align-self: flex-start;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--gold-subtle);
+  color: var(--gold-secondary);
+  margin-bottom: 10px;
+  border: 1px solid var(--gold-border);
+}
+
+[data-theme="light"] .pillar-badge {
+  background: #f1f5f9;
+  color: #0e3a66;
+  border-color: #e2e8f0;
+}
+
+.pillar-title {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.pillar-subtitle {
+  font-size: 0.85rem;
+  color: var(--gold-secondary);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+[data-theme="light"] .pillar-subtitle {
+  color: #854d0e;
+}
+
+.pillar-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  flex: 1;
+}
+
+/* ==========================================================================
+   DISSERTATIONS (DOKTORLIK VA NOMZODLIK)
+   ========================================================================== */
+.dissertations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+  gap: 28px;
+}
+
+.dissertation-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  box-shadow: var(--shadow-subtle);
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .dissertation-card {
+  background: var(--bg-surface);
+}
+
+.dissertation-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-border-bright);
+}
+
+.dissertation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.dissertation-type-tag {
+  background: var(--gold-primary);
+  color: #0c131f;
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+[data-theme="light"] .dissertation-type-tag {
+  background: var(--gold-primary);
+  color: #ffffff;
+}
+
+.dissertation-year {
+  color: var(--azure-light);
+  font-weight: 700;
+  font-size: 1.05rem;
+  font-family: var(--font-title);
+}
+
+[data-theme="light"] .dissertation-year {
+  color: var(--azure-primary);
+}
+
+.dissertation-title {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 16px;
+}
+
+.dissertation-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border-subtle);
+}
+
+[data-theme="light"] .dissertation-meta {
+  background: var(--bg-secondary);
+}
+
+.meta-row {
+  display: flex;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.meta-label {
+  color: var(--gold-secondary);
+  font-weight: 600;
+  min-width: 120px;
+}
+
+[data-theme="light"] .meta-label {
+  color: var(--gold-primary);
+}
+
+.meta-val {
+  color: var(--text-secondary);
+}
+
+.dissertation-highlights {
+  list-style: none;
+  margin-bottom: 22px;
+}
+
+.dissertation-highlights li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.dissertation-highlights li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold-primary);
+  font-size: 0.8rem;
+}
+
+.dissertation-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   ILMIY MAQOLALAR VA FILTRLAR
+   ========================================================================== */
+.library-filter-bar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+[data-theme="light"] .library-filter-bar {
+  background: var(--bg-surface);
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-primary);
+  font-size: 0.95rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px 10px 42px;
+  border-radius: 8px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  transition: border-color var(--transition-smooth);
+}
+
+[data-theme="light"] .search-input {
+  background: var(--bg-secondary);
+  border-color: var(--border-card);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--gold-primary);
+}
+
+.filter-categories {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 7px 14px;
+  border-radius: 6px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .filter-btn {
+  background: var(--bg-secondary);
+  border-color: var(--border-card);
+}
+
+.filter-btn:hover {
+  color: var(--gold-secondary);
+  border-color: var(--gold-border);
+}
+
+[data-theme="light"] .filter-btn:hover {
+  color: var(--gold-primary);
+}
+
+.filter-btn.active {
+  background: var(--gold-primary);
+  color: #0c131f;
+  border-color: var(--gold-secondary);
+}
+
+[data-theme="light"] .filter-btn.active {
+  background: var(--gold-primary);
+  color: #ffffff;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.article-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .article-card {
+  background: var(--bg-surface);
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-border-bright);
+}
+
+.article-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.article-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--gold-subtle);
+  color: var(--gold-secondary);
+  border: 1px solid var(--gold-border);
+}
+
+[data-theme="light"] .article-badge {
+  color: var(--gold-primary);
+}
+
+.article-badge.international {
+  background: var(--azure-subtle);
+  color: var(--azure-light);
+  border-color: var(--azure-border);
+}
+
+[data-theme="light"] .article-badge.international {
+  color: var(--azure-primary);
+}
+
+.article-year {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.article-title {
+  font-size: 1.08rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.article-journal {
+  font-size: 0.82rem;
+  color: var(--gold-secondary);
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+[data-theme="light"] .article-journal {
+  color: var(--gold-primary);
+}
+
+.article-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  gap: 8px;
+}
+
+.article-pages {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.article-btn-group {
+  display: flex;
+  gap: 6px;
+}
+
+/* ==========================================================================
+   LOYIHALAR VA SERTIFIKATLAR
+   ========================================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .project-card {
+  background: var(--bg-surface);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-border-bright);
+}
+
+.project-period {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--azure-light);
+  margin-bottom: 10px;
+}
+
+[data-theme="light"] .project-period {
+  color: var(--azure-primary);
+}
+
+.project-title {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.project-customer {
+  font-size: 0.84rem;
+  color: var(--gold-secondary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-theme="light"] .project-customer {
+  color: var(--gold-primary);
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+.project-files-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.project-file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-primary);
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .project-file-item {
+  background: var(--bg-secondary);
+  border-color: var(--border-card);
+}
+
+.project-file-item:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-secondary);
+}
+
+/* Sertifikatlar Galereyasi */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.certificate-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="light"] .certificate-card {
+  background: var(--bg-surface);
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-border-bright);
+}
+
+.cert-thumbnail-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #080d1a;
+  position: relative;
+}
+
+.cert-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.certificate-card:hover .cert-thumbnail-img {
+  transform: scale(1.05);
+}
+
+.cert-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 15, 29, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-smooth);
+  color: var(--gold-secondary);
+  font-size: 1.5rem;
+}
+
+.certificate-card:hover .cert-hover-overlay {
+  opacity: 1;
+}
+
+.cert-info {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-category-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cert-title {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.cert-institution {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   TIMELINE (MEHNAT FAOLIYATI)
+   ========================================================================== */
+.timeline-container {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--gold-primary), var(--azure-primary), transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 16px 36px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  border: 3px solid var(--bg-primary);
+  z-index: 2;
+}
+
+.timeline-item.left .timeline-dot {
+  right: -7px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -7px;
+}
+
+.timeline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .timeline-card {
+  background: var(--bg-surface);
+}
+
+.timeline-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-border-bright);
+}
+
+.timeline-period {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gold-secondary);
+  margin-bottom: 6px;
+}
+
+[data-theme="light"] .timeline-period {
+  color: var(--gold-primary);
+}
+
+.timeline-title {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.timeline-org {
+  font-size: 0.84rem;
+  color: var(--azure-light);
+  margin-bottom: 8px;
+}
+
+[data-theme="light"] .timeline-org {
+  color: var(--azure-primary);
+}
+
+.timeline-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   TILLAR VA MAHORAT
+   ========================================================================== */
+.languages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.language-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+[data-theme="light"] .language-item {
+  background: var(--bg-surface);
+}
+
+.lang-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.lang-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.lang-level {
+  font-size: 0.78rem;
+  color: var(--gold-secondary);
+}
+
+[data-theme="light"] .lang-level {
+  color: var(--gold-primary);
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 5px;
+  background: var(--bg-primary);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+[data-theme="light"] .progress-bar-bg {
+  background: var(--bg-secondary);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--gold-primary);
+  transition: width 1s ease-in-out;
+}
+
+/* ==========================================================================
+   BOG'LANISH VA AKADEMIK REKVIZITLAR (FORMA OLIB TASHLANDI)
+   ========================================================================== */
+.contact-academic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.academic-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-subtle);
+}
+
+[data-theme="light"] .academic-info-card {
+  background: var(--bg-surface);
+}
+
+.academic-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.academic-card-header i {
+  font-size: 1.4rem;
+  color: var(--gold-primary);
+}
+
+.academic-card-header h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.contact-detail-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-secondary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .contact-icon-box {
+  color: var(--gold-primary);
+}
+
+.contact-label {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  letter-spacing: 0.04em;
+}
+
+.contact-val {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-val:hover {
+  color: var(--gold-secondary);
+}
+
+[data-theme="light"] .contact-val:hover {
+  color: var(--gold-primary);
+}
+
+.academic-hours-badge {
+  display: inline-block;
+  background: var(--azure-subtle);
+  border: 1px solid var(--azure-border);
+  color: var(--azure-light);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+[data-theme="light"] .academic-hours-badge {
+  color: var(--azure-primary);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background: #060a14;
+  border-top: 1px solid var(--border-card);
+  padding: 45px 0 25px;
+  position: relative;
+  z-index: 2;
+}
+
+[data-theme="light"] .site-footer {
+  background: #eee8dc;
+  border-top: 1px solid var(--border-card);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   MODAL OYNALAR (PDF & LIGHTBOX & CV)
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 16, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-smooth);
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-container {
+  width: 100%;
+  max-width: 920px;
+  max-height: 90vh;
+  background: var(--bg-surface);
+  border: 1px solid var(--gold-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-elevated);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.96);
+  transition: transform var(--transition-smooth);
+}
+
+[data-theme="light"] .modal-container {
+  background: #ffffff;
+}
+
+.modal-backdrop.active .modal-container {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-secondary);
+}
+
+.modal-title {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.modal-close-btn {
+  background: var(--border-subtle);
+  border: none;
+  color: var(--text-primary);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition-smooth);
+}
+
+.modal-close-btn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.pdf-embed-wrapper {
+  width: 100%;
+  height: 70vh;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #111827;
+}
+
+.pdf-embed-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.lightbox-img-wrapper {
+  text-align: center;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img-wrapper img {
+  max-width: 100%;
+  max-height: 72vh;
+  border-radius: 8px;
+  box-shadow: var(--shadow-elevated);
+  border: 1px solid var(--gold-border);
+}
+
+/* Toast Notice */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--gold-border);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-elevated);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all var(--transition-smooth);
+}
+
+[data-theme="light"] .toast-notice {
+  background: #ffffff;
+}
+
+.toast-notice.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOSLASHUVCHANLIK: KOMPYUTER, LAPTOP, PLANSHET, TELEFON)
+   ========================================================================== */
+
+/* 1. LAPTOP & KICHIK DESKTOP (1024px - 1366px) */
+@media (max-width: 1366px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 20px;
+  }
+  .nav-links {
+    gap: 14px;
+  }
+  .nav-links a {
+    font-size: 0.84rem;
+  }
+  .hero-title {
+    font-size: 2.6rem;
+  }
+  .portrait-card {
+    max-width: 380px;
+  }
+  .hero-grid {
+    gap: 36px;
+  }
+}
+
+/* 1.1 KICHIK LAPTOP (1024px - 1200px) */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 10px;
+  }
+  .nav-links a {
+    font-size: 0.82rem;
+  }
+  .brand-text h2 {
+    font-size: 0.98rem;
+  }
+  .brand-text p {
+    font-size: 0.68rem;
+  }
+  .nav-actions {
+    gap: 8px;
+  }
+  #open-cv-modal-btn span {
+    display: none;
+  }
+  #open-cv-modal-btn {
+    padding: 7px 10px;
+  }
+}
+
+/* 2. PLANSHET (768px - 1023px) */
+@media (max-width: 1023px) {
+  .hero-section {
+    padding-top: 110px;
+    padding-bottom: 50px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .portrait-dashboard-wrapper {
+    order: -1;
+  }
+  .portrait-card {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .hero-content {
+    text-align: center;
+  }
+  .hero-subtitle {
+    justify-content: center;
+  }
+  .hero-bio {
+    margin: 0 auto 24px auto;
+  }
+  .hero-cta-group {
+    justify-content: center;
+  }
+  .hero-stats {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Mobil Menyu Planshet va Telefondan boshlanadi */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid var(--border-card);
+    background: var(--bg-surface);
+  }
+  .nav-links {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+    background: var(--bg-surface-elevated);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    border-bottom: 2px solid var(--gold-border);
+    transform: translateY(-150%);
+    transition: transform var(--transition-smooth);
+    box-shadow: var(--shadow-elevated);
+    gap: 6px;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+  }
+  .nav-links a {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+  .nav-links a:hover {
+    background: var(--gold-subtle);
+  }
+  
+  /* Submenu Mobil va Planshetda ochiq yoki qulay akkordeon */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    margin: 4px 0 10px 14px;
+    display: none;
+  }
+  .nav-item-dropdown.active .dropdown-menu,
+  .nav-item-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown-menu a {
+    padding: 8px 12px;
+    font-size: 0.88rem;
+  }
+
+  .mobile-cv-item {
+    display: block;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .mobile-cv-item a {
+    color: var(--gold-secondary) !important;
+    font-weight: 600;
+  }
+  [data-theme="light"] .mobile-cv-item a {
+    color: var(--gold-primary) !important;
+  }
+
+  .timeline-container::before {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 54px;
+    padding-right: 14px;
+    text-align: left !important;
+  }
+  .timeline-item.right {
+    left: 0;
+  }
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 13px;
+    right: auto;
+  }
+  .dissertations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. TELEFON (320px - 767px) */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+  .section-title {
+    font-size: 1.65rem;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 14px;
+  }
+  .stat-item {
+    padding: 6px 0;
+  }
+  .stat-item:nth-child(2) {
+    border-right: none;
+  }
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  .floating-badge {
+    display: none;
+  }
+  .portrait-card {
+    max-width: 330px;
+    padding: 16px;
+  }
+  .library-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .filter-categories {
+    width: 100%;
+  }
+  .filter-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-academic-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+  .brand-text h2 {
+    font-size: 0.98rem;
+  }
+  .brand-text p {
+    font-size: 0.68rem;
+  }
+  .lang-btn {
+    padding: 3px 6px;
+    font-size: 0.72rem;
+  }
+  #open-cv-modal-btn {
+    display: none;
+  }
+}
+
+/* 4. KICHIK TELEFON (320px - 420px) */
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .nav-inner {
+    height: 70px;
+  }
+  .site-nav {
+    top: 0;
+  }
+  .portrait-card {
+    max-width: 100%;
+  }
+  .astrolabe-science-frame {
+    width: 310px;
+    height: 310px;
+  }
+  .science-orbit-track {
+    width: 290px;
+    height: 290px;
+  }
+  .science-orbit-node span {
+    display: none;
+  }
+  .science-orbit-node {
+    padding: 6px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .astrolabe-science-frame {
+    width: 450px;
+    height: 450px;
+  }
+  .science-orbit-track {
+    width: 410px;
+    height: 410px;
+  }
+}
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATSIYALARI
+   ========================================================================== */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

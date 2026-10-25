@@ -1,0 +1,15 @@
+# Large raw archive (exceeds GitHub 100MB file limit)
+*.zip
+XIDIROVA N. HUJJATLAR TGFU/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Scratch extraction notes
+extracted_cv.txt

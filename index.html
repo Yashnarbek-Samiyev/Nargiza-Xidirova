@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xidirova Nargizaxon O‘rinovna | Tarix fanlari doktori (DSc)</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Xidirova Nargizaxon O‘rinovna — Tarix fanlari doktori (DSc), Toshkent Gumanitar Fanlar Universiteti o‘qituvchisi. Tasavvuf, Temuriylar davri va ayollar tarixi bo‘yicha yetakchi olima.">
+  <meta name="keywords" content="Nargiza Xidirova, Xidirova Nargizaxon, Tarix fanlari doktori, DSc, TGFU, O‘zbekiston tarixi, Tasavvuf, Naqshbandiya, Xoja Muhammad Porso, Xoja Ahror Valiy, Temuriylar tarixi, Ayollar mavqeyi">
+  <meta name="author" content="Xidirova Nargizaxon O‘rinovna">
+
+  <!-- Favicon Emblem -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+
+  <!-- Google Fonts: Cormorant Garamond, Marcellus, Outfit (Nafis Akademik Tipografiya) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Marcellus&family=Outfit:wght@350;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Particle Stars Canvas (Qadimiy Kutubxona Chang Zarrachalari va Xattotlik Romb Nuqtalari) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Oriental Atmospheric Overlay -->
+  <div class="oriental-bg-overlay"></div>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR (IXCHAM MENYU VA SUBMENULAR, TIL ALMASHTIRGICH)
+       ========================================================================== -->
+  <header class="site-nav" id="site-nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand-wrapper" title="Bosh sahifa">
+        <div class="brand-text">
+          <h2>Xidirova Nargizaxon O‘rinovna</h2>
+          <p data-i18n="hero_degree">Tarix fanlari doktori (DSc) • TGFU</p>
+        </div>
+      </a>
+
+      <!-- Asosiy Navigatsiya (Ixcham & Submenular bilan) -->
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li>
+            <a href="#home" class="active" data-i18n="nav_home">Asosiy</a>
+          </li>
+
+          <!-- Submenu 1: Ilmiy Faoliyat -->
+          <li class="nav-item-dropdown">
+            <a href="javascript:void(0)">
+              <span data-i18n="nav_research">Ilmiy faoliyat</span>
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#pillars">
+                  <i class="fas fa-compass"></i>
+                  <span data-i18n="nav_pillars">Tadqiqot yo‘nalishlari</span>
+                </a>
+              </li>
+              <li>
+                <a href="#dissertations">
+                  <i class="fas fa-scroll"></i>
+                  <span data-i18n="nav_dissertations">Dissertatsiyalar (DSc & PhD)</span>
+                </a>
+              </li>
+              <li>
+                <a href="#monographs">
+                  <i class="fas fa-book"></i>
+                  <span data-i18n="nav_monographs">Monografiyalar</span>
+                </a>
+              </li>
+              <li>
+                <a href="#projects">
+                  <i class="fas fa-project-diagram"></i>
+                  <span data-i18n="nav_projects">Ilmiy loyihalar</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Maqolalar -->
+          <li>
+            <a href="#library" data-i18n="nav_articles">Maqolalar</a>
+          </li>
+
+          <!-- Submenu 2: Hujjatlar & Manbalar -->
+          <li class="nav-item-dropdown">
+            <a href="javascript:void(0)">
+              <span data-i18n="nav_documents">Hujjatlar & Manbalar</span>
+              <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#certificates">
+                  <i class="fas fa-certificate"></i>
+                  <span data-i18n="nav_certificates">Diplom va sertifikatlar</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about">
+                  <i class="fas fa-user-graduate"></i>
+                  <span data-i18n="nav_biography">Tarjimai hol & Tillar</span>
+                </a>
+              </li>
+              <li>
+                <a href="#timeline">
+                  <i class="fas fa-history"></i>
+                  <span data-i18n="timeline_title">Faoliyat yo‘li</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- Kafedra & Qabul -->
+          <li>
+            <a href="#contact" data-i18n="nav_contact">Kafedra & Qabul</a>
+          </li>
+
+          <!-- Mobil menyuda Obyektivka (CV) -->
+          <li class="mobile-cv-item">
+            <a href="javascript:void(0)" onclick="document.getElementById('cv-modal').classList.add('active')">
+              <i class="fas fa-file-invoice"></i> <span data-i18n="nav_cv_btn">Obyektivka (CV)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions: Tillar (UZ/RU/EN), Mavzu (Kun/Tun) va CV tugmasi -->
+      <div class="nav-actions">
+        <!-- 3 xil til (Default: uz) -->
+        <div class="lang-switch-group">
+          <button class="lang-btn active" data-lang="uz" title="O‘zbek tili">UZ</button>
+          <button class="lang-btn" data-lang="ru" title="Русский язык">RU</button>
+          <button class="lang-btn" data-lang="en" title="English language">EN</button>
+        </div>
+
+        <!-- Mavzu o'zgartirish (Default: Kun rejimi) -->
+        <button class="theme-toggle-btn" id="theme-toggle" title="Kun / Tun rejimini almashtirish">
+          <i class="fas fa-moon"></i>
+        </button>
+
+        <button class="btn btn-outline-gold btn-sm" id="open-cv-modal-btn">
+          <i class="fas fa-file-invoice"></i> <span data-i18n="nav_cv_btn">Obyektivka</span>
+        </button>
+
+        <!-- Mobil Menyu Tugmasi -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menyu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO & DASHBOARD SECTION
+       ========================================================================== -->
+  <main>
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Biography & Highlights -->
+          <div class="hero-content">
+            <div class="university-badge">
+              <i class="fas fa-university"></i>
+              <span data-i18n="hero_uni">Toshkent Gumanitar Fanlar Universiteti (TGFU)</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span data-i18n="hero_fname">Xidirova</span> <br>
+              <span class="gold-gradient-text" data-i18n="hero_lname">Nargizaxon</span> <span data-i18n="hero_mname">O‘rinovna</span>
+            </h1>
+
+            <div class="hero-subtitle">
+              <span class="hero-degree-tag"><i class="fas fa-graduation-cap"></i> <span data-i18n="hero_degree">Tarix fanlari doktori (DSc)</span></span>
+              <span>• <span data-i18n="hero_role">Sharqshunos & Manbashunos</span></span>
+            </div>
+
+            <p class="hero-bio" data-i18n="hero_bio">
+              O‘zbekiston tarixi, tasavvuf falsafasi (Xojagon-Naqshbandiya tariqati), Temuriylar davlatchilik madaniyati hamda Markaziy Osiyo xonliklarida oila, nikoh va ayollarning ijtimoiy-huquqiy maqomini tadqiq etuvchi yetakchi olima.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#library" class="btn btn-primary">
+                <i class="fas fa-book-reader"></i> <span data-i18n="hero_btn_articles">Ilmiy maqolalar (PDF)</span>
+              </a>
+              <a href="#dissertations" class="btn btn-secondary">
+                <i class="fas fa-scroll"></i> <span data-i18n="hero_btn_dissertation">Doktorlik dissertatsiyasi</span>
+              </a>
+              <a href="#contact" class="btn btn-outline-gold">
+                <i class="fas fa-university"></i> <span data-i18n="hero_btn_contact">Kafedra & Qabul</span>
+              </a>
+            </div>
+
+            <!-- Harakatlanuvchi Fanga Aloqador Ilmiy Manbalar Tasmiri (Live Science Astrolabe Meridian) -->
+            <div class="science-meridian-ticker">
+              <div class="meridian-icon-pulse">
+                <i class="fas fa-compass"></i>
+              </div>
+              <div class="meridian-content">
+                <div class="meridian-title">
+                  <span class="meridian-badge" data-i18n="science_ticker_badge">Tarix & Manbashunoslik</span>
+                  <strong data-i18n="science_ticker_title">Tasavvuf Falsafasi & Temuriylar Davri Arxivlari</strong>
+                </div>
+                <div class="meridian-coordinates">
+                  <span><i class="fas fa-map-pin"></i> Buxoro (39°46′N)</span>
+                  <span class="coord-dot">•</span>
+                  <span>Samarqand (39°39′N)</span>
+                  <span class="coord-dot">•</span>
+                  <span>Toshkent (41°18′N)</span>
+                  <span class="coord-dot">•</span>
+                  <span class="manuscript-stamp"><i class="fas fa-history"></i> XV–XX asr qo‘lyozmalari</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number gold-text" data-target="100">100+</div>
+                <div class="stat-label" data-i18n="stat_pubs">Ilmiy nashrlar</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number azure-text" data-target="2">2</div>
+                <div class="stat-label" data-i18n="stat_diss">Dissertatsiya (PhD & DSc)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number gold-text" data-target="8">8+</div>
+                <div class="stat-label" data-i18n="stat_projects">Davlat & Xalqaro loyihalar</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number azure-text" data-target="28">28+</div>
+                <div class="stat-label" data-i18n="stat_exp">Yillik ilmiy staj</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: DASHBOARD PORTRAIT CARD & HARAKATLANUVCHI FAN ASTROLYABIYASI -->
+          <div class="portrait-dashboard-wrapper">
+            
+            <!-- Harakatlanuvchi Fanga Aloqador Sharq Astrolyabiyasi Mexanizmi -->
+            <div class="astrolabe-science-frame" aria-hidden="true">
+              <!-- Tashqi Astrolyabiya Daraja Halqasi (Doimiy silliq aylanuvchi) -->
+              <svg class="astrolabe-ring-outer-svg" viewBox="0 0 500 500">
+                <circle cx="250" cy="250" r="238" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="5,6"/>
+                <circle cx="250" cy="250" r="222" fill="none" stroke="currentColor" stroke-width="1"/>
+                <circle cx="250" cy="20" r="6" fill="currentColor"/>
+                <circle cx="480" cy="250" r="6" fill="currentColor"/>
+                <circle cx="250" cy="480" r="6" fill="currentColor"/>
+                <circle cx="20" cy="250" r="6" fill="currentColor"/>
+                <circle cx="412" cy="88" r="4" fill="currentColor"/>
+                <circle cx="88" cy="412" r="4" fill="currentColor"/>
+                <circle cx="412" cy="412" r="4" fill="currentColor"/>
+                <circle cx="88" cy="88" r="4" fill="currentColor"/>
+                <line x1="250" y1="10" x2="250" y2="490" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.4"/>
+                <line x1="10" y1="250" x2="490" y2="250" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.4"/>
+              </svg>
+
+              <!-- Ichki Zodiak va Qo'lyozmalar To'ri (Teskari aylanuvchi Rete) -->
+              <svg class="astrolabe-star-inner-svg" viewBox="0 0 400 400">
+                <polygon points="200,24 252,142 376,200 252,258 200,376 148,258 24,200 148,142" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <polygon points="200,45 310,90 355,200 310,310 200,355 90,310 45,200 90,90" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="4,4" opacity="0.65"/>
+                <circle cx="200" cy="200" r="120" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3,3"/>
+                <circle cx="200" cy="200" r="50" fill="none" stroke="currentColor" stroke-width="0.8"/>
+              </svg>
+
+              <!-- Orbitada Doimiy Aylanuvchi 4 ta Ilmiy Ramz -->
+              <div class="science-orbit-track">
+                <div class="science-orbit-node node-1" title="Qadimiy Qo'lyozmalar va Matnshunoslik">
+                  <i class="fas fa-scroll"></i>
+                  <span>Qo‘lyozma</span>
+                </div>
+                <div class="science-orbit-node node-2" title="Sharq Munajjimligi va Rasadxona">
+                  <i class="fas fa-compass"></i>
+                  <span>Astrolyabiya</span>
+                </div>
+                <div class="science-orbit-node node-3" title="Tarixiy Xattotlik va Arxiv Hujjatlari">
+                  <i class="fas fa-feather-alt"></i>
+                  <span>Xattotlik</span>
+                </div>
+                <div class="science-orbit-node node-4" title="Tasavvuf Falsafasi va Ma'naviyat">
+                  <i class="fas fa-monument"></i>
+                  <span>Tasavvuf</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portrait-card">
+              
+              <!-- Top Left Floating Badge -->
+              <div class="floating-badge badge-top-left">
+                <i class="fas fa-award"></i>
+                <div>
+                  <div class="badge-title" data-i18n="badge_dsc">DSc Olima</div>
+                  <div class="badge-sub" data-i18n="badge_dsc_sub">07.00.01 – O‘zbekiston tarixi</div>
+                </div>
+              </div>
+
+              <!-- Main Arch Frame with Scholar Image -->
+              <div class="arch-frame" id="portrait-dropzone">
+                <img src="assets/nargizaxon_xidirova.jpg" alt="Xidirova Nargizaxon O‘rinovna" class="portrait-img" id="scholar-portrait-img">
+              </div>
+
+              <!-- Bottom Right Floating Badge -->
+              <div class="floating-badge badge-bottom-right">
+                <i class="fas fa-book-open"></i>
+                <div>
+                  <div class="badge-title" data-i18n="badge_dept">TGFU Kafedrasi</div>
+                  <div class="badge-sub" data-i18n="badge_dept_sub">Aniq va gumanitar fanlar</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT & SCHOLAR PROFILE
+         ========================================================================== -->
+    <section class="section-padding" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-user-graduate"></i> <span data-i18n="about_tag">Tarjimai hol</span></span>
+          <h2 class="section-title" data-i18n="about_title">Sharqshunoslik va Tarix Ilmiga Bag‘ishlangan Umr</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="about_desc">
+            Xidirova Nargizaxon O‘rinovna — 28 yildan ortiq vaqt mobaynida O‘zbekiston Respublikasi Fanlar akademiyasi Tarix instituti va yetakchi oliygohlarda samarali faoliyat yuritib, Markaziy Osiyo xalqlari ma’naviy-huquqiy merosini o‘rganishga ulkan hissa qo‘shib kelmoqda.
+          </p>
+        </div>
+
+        <!-- Languages & Skills -->
+        <div class="languages-grid" id="languages-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <button class="btn btn-outline-gold" onclick="document.getElementById('cv-modal').classList.add('active')">
+            <i class="fas fa-file-alt"></i> <span data-i18n="btn_view_full_cv">To‘liq Obyektivkani (CV) ko‘rish va chop etish</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         RESEARCH PILLARS (ILMIY YO'NALISHLAR)
+         ========================================================================== -->
+    <section class="section-padding" id="pillars">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-compass"></i> <span data-i18n="pillars_tag">Tadqiqot Yo‘nalishlari</span></span>
+          <h2 class="section-title" data-i18n="pillars_title">Ilmiy Izlanishlar va Fundamental Maktab</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="pillars_desc">
+            Olimaning ilmiy faoliyati manbashunoslik, matnshunoslik, tasavvuf falsafasi, diplomatiya tarixi va arxiv hujjatlari sintezi ustiga qurilgan.
+          </p>
+        </div>
+
+        <div class="pillars-grid" id="pillars-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DISSERTATIONS (DOKTORLIK VA NOMZODLIK)
+         ========================================================================== -->
+    <section class="section-padding" id="dissertations">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-scroll"></i> <span data-i18n="diss_tag">Ilmiy Dissertatsiyalar</span></span>
+          <h2 class="section-title" data-i18n="diss_title">Doktorlik va Nomzodlik Tadqiqotlari</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="diss_desc">
+            DSc va PhD ilmiy darajalarini beruvchi Ilmiy kengashlarda muvaffaqiyatli himoya qilingan fundamental ilmiy ishlar avtoreferatlari bilan to‘liq tanishishingiz mumkin.
+          </p>
+        </div>
+
+        <div class="dissertations-grid" id="dissertations-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MONOGRAPHS & BOOKS
+         ========================================================================== -->
+    <section class="section-padding" id="monographs">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-book-journal-whills"></i> <span data-i18n="monographs_tag">Asarlar</span></span>
+          <h2 class="section-title" data-i18n="monographs_title">Chop Etilgan Monografiyalar</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="monographs_desc">
+            Tarixchilar, sharqshunoslar, talabalar va keng ilmiy jamoatchilik uchun mo‘ljallangan fundamental kitoblar.
+          </p>
+        </div>
+
+        <div class="pillars-grid" id="monographs-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ARTICLES & PUBLICATIONS LIBRARY (MAQOLALAR KUTUBXONASI)
+         ========================================================================== -->
+    <section class="section-padding" id="library">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-newspaper"></i> <span data-i18n="articles_tag">Ilmiy Nashrlar</span></span>
+          <h2 class="section-title" data-i18n="articles_title">Maqolalar Kutubxonasi va PDF Mutolaasi</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="articles_desc">
+            Brill (Niderlandiya), Oriente Moderno, Scopus, Respublika OAK (VAK) jurnallari hamda xalqaro anjumanlarda chop etilgan 100 dan ortiq ilmiy maqolalarning elektron nusxalari.
+          </p>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="library-filter-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="article-search-input" class="search-input" data-i18n-placeholder="search_placeholder" placeholder="Maqola nomi, kalit so‘z yoki yil bo‘yicha qidiring...">
+          </div>
+
+          <div class="filter-categories">
+            <button class="filter-btn active" data-category="all" data-i18n="filter_all">Hammasi</button>
+            <button class="filter-btn" data-category="international" data-i18n="filter_intl">Xalqaro (Brill / Scopus)</button>
+            <button class="filter-btn" data-category="vak" data-i18n="filter_vak">OAK (VAK) Jurnallari</button>
+            <button class="filter-btn" data-category="conference" data-i18n="filter_conf">Anjumanlar & To‘plamlar</button>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 18px; font-size: 0.88rem; color: var(--gold-secondary);" id="articles-count"></div>
+
+        <!-- Dynamic Articles Grid -->
+        <div class="articles-grid" id="articles-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         RESEARCH PROJECTS & GRANTS (LOYIHALAR)
+         ========================================================================== -->
+    <section class="section-padding" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-project-diagram"></i> <span data-i18n="projects_tag">Ilmiy Grantlar</span></span>
+          <h2 class="section-title" data-i18n="projects_title">Davlat va Xalqaro Ilmiy Loyihalar</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="projects_desc">
+            O‘zbekistondagi Islom sivilizatsiyasi markazi, Fanlar akademiyasi Tarix instituti va xorijiy ilmiy markazlar bilan amalga oshirilgan fundamental tadqiqotlar.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CERTIFICATES & DIPLOMAS (SERTIFIKATLAR)
+         ========================================================================== -->
+    <section class="section-padding" id="certificates">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-certificate"></i> <span data-i18n="certs_tag">Malaka & Huquqiy Maqom</span></span>
+          <h2 class="section-title" data-i18n="certs_title">Diplomlar, Sertifikatlar va Malaka Oshirish</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="certs_desc">
+            Tarix fanlari doktori va nomzodligi davlat diplomlari, Islom huquqi xalqaro sertifikati hamda xorijiy universitetlar malaka sertifikatlari galereyasi.
+          </p>
+        </div>
+
+        <div class="certificates-grid" id="certificates-grid">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CAREER TIMELINE (MEHNAT FAOLIYATI)
+         ========================================================================== -->
+    <section class="section-padding" id="timeline">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-history"></i> <span data-i18n="timeline_tag">Faoliyat Yo‘li</span></span>
+          <h2 class="section-title" data-i18n="timeline_title">Mehnat Faoliyati va Xizmat Pog‘onalari</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div class="timeline-container" id="timeline-list">
+          <!-- Rendered dynamically by js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         KAFEDRA VA QABUL BO'LIMI
+         ========================================================================== -->
+    <section class="section-padding" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag"><i class="fas fa-university"></i> <span data-i18n="dept_tag">Kafedra & Qabul</span></span>
+          <h2 class="section-title" data-i18n="dept_title">Akademik Faoliyat va Muloqot Ma’lumotlari</h2>
+          <div class="ornament-divider">
+            <span class="line"></span>
+            <span class="ornament-symbol">✦ ❦ ✦</span>
+            <span class="line"></span>
+          </div>
+          <p class="section-desc" data-i18n="dept_desc">
+            Toshkent Gumanitar Fanlar Universiteti, «Aniq va gumanitar fanlar» kafedrasi hamda ilmiy tadqiqotchilar uchun rasmiy qabul tartibi.
+          </p>
+        </div>
+
+        <div class="contact-academic-grid">
+          
+          <!-- Card 1: Kafedra va Rasmiy Rekvizitlar -->
+          <div class="academic-info-card">
+            <div>
+              <div class="academic-card-header">
+                <i class="fas fa-landmark"></i>
+                <h3 data-i18n="card_dept_title">Kafedra Rekvizitlari</h3>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon-box"><i class="fas fa-university"></i></div>
+                <div>
+                  <div class="contact-label" data-i18n="label_institution">Oliy Ta’lim Muassasasi</div>
+                  <div class="contact-val">Toshkent Gumanitar Fanlar Universiteti (TGFU)</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2px;">«Aniq va gumanitar fanlar» kafedrasi</div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon-box"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <div class="contact-label" data-i18n="label_emails">Rasmiy Elektron Pochtalar</div>
+                  <div><a href="mailto:nargiza_hidirova@mail.ru" class="contact-val">nargiza_hidirova@mail.ru</a></div>
+                  <div><a href="mailto:nargizaxon2171@gmail.com" class="contact-val">nargizaxon2171@gmail.com</a></div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <div class="contact-label" data-i18n="label_address">Joylashuv va Manzil</div>
+                  <div class="contact-val">Toshkent shahri, Yangihayot tumani, 1-mavze, 99-uy</div>
+                  <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 2px;">Pochta indeksi: 100012, O‘zbekiston</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding-top: 18px; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-muted);">
+              <i class="fas fa-check-circle" style="color: var(--gold-primary); margin-right: 6px;"></i>
+              <span data-i18n="dept_note">Rasmiy xat va hujjatlar TGFU devonxonasi orqali qabul qilinadi.</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Talaba va Doktorantlar Qabul Tartibi -->
+          <div class="academic-info-card">
+            <div>
+              <div class="academic-card-header">
+                <i class="fas fa-user-clock"></i>
+                <h3 data-i18n="card_hours_title">Ilmiy Konsultatsiya va Dars Jadvali</h3>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon-box"><i class="fas fa-calendar-check"></i></div>
+                <div>
+                  <div class="contact-label" data-i18n="label_hours">Talabalar uchun qabul vaqtlari</div>
+                  <div class="contact-val" data-i18n="val_hours_days">Seshanba va Payshanba kunlari</div>
+                  <span class="academic-hours-badge" data-i18n="val_hours_time">Soat 14:00 dan 17:00 gacha</span>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon-box"><i class="fas fa-scroll"></i></div>
+                <div>
+                  <div class="contact-label" data-i18n="label_researchers">Doktorant va Mustaqil Izlanuvchilar</div>
+                  <div class="contact-val" data-i18n="val_specialty">07.00.01 – O‘zbekiston tarixi ixtisosligi</div>
+                  <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;" data-i18n="val_researchers_desc">
+                    Dissertatsiya mavzulari, arxiv va qo‘lyozma manbalar tahlili bo‘yicha ilmiy maslahatlar oldindan kelishilgan reja asosida o‘tkaziladi.
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-detail-item">
+                <div class="contact-icon-box"><i class="fas fa-book-reader"></i></div>
+                <div>
+                  <div class="contact-label" data-i18n="label_courses">O‘qitiladigan Fanlar</div>
+                  <div class="contact-val" data-i18n="val_courses">O‘zbekiston tarixi, Manbashunoslik, Sharq sivilizatsiyasi</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding-top: 18px; border-top: 1px solid var(--border-subtle); font-size: 0.85rem; color: var(--text-muted);">
+              <i class="fas fa-info-circle" style="color: var(--azure-light); margin-right: 6px;"></i>
+              <span data-i18n="hours_note">TGFU dars jadvali va xonalar taqsimoti universitet axborot tizimida belgilanadi.</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="brand-wrapper">
+          <div class="brand-text">
+            <h2>Xidirova Nargizaxon O‘rinovna</h2>
+            <p>Tarix fanlari doktori (DSc) • Sharqshunos-olima</p>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="#home" class="btn btn-secondary btn-sm"><i class="fas fa-arrow-up"></i> <span data-i18n="footer_top_btn">Yuqoriga</span></a>
+          <button class="btn btn-outline-gold btn-sm" onclick="window.print()"><i class="fas fa-print"></i> <span data-i18n="footer_print_btn">Sahifani chop etish</span></button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Xidirova Nargizaxon O‘rinovna. <span data-i18n="footer_rights">Barcha huquqlar himoyalangan.</span>
+        </div>
+        <div>
+          Toshkent Gumanitar Fanlar Universiteti (TGFU)
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL 1: PDF VIEWER (MAQOLALAR VA DOKTORLIK AVTOREFERATLAR)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="pdf-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="pdf-modal-title">Hujjat mutolaasi</h3>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <a href="#" id="pdf-modal-download" class="btn btn-primary btn-sm" download title="Faylni yuklab olish">
+            <i class="fas fa-download"></i> <span data-i18n="btn_download_pdf">Yuklab olish</span>
+          </a>
+          <button class="modal-close-btn modal-close-trigger" aria-label="Yopish">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 10px;">
+        <div class="pdf-embed-wrapper">
+          <iframe id="pdf-modal-iframe" src="about:blank" title="PDF Viewer"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 2: LIGHTBOX (DIPLOM VA SERTIFIKATLAR)
+       ========================================================================== -->
+  <div class="modal-backdrop" id="lightbox-modal">
+    <div class="modal-container" style="max-width: 800px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="lightbox-title">Sertifikat</h3>
+          <p id="lightbox-desc" style="font-size: 0.85rem; color: var(--gold-secondary); margin-top: 4px;"></p>
+        </div>
+        <button class="modal-close-btn modal-close-trigger" aria-label="Yopish">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="lightbox-img-wrapper">
+          <img id="lightbox-img" src="" alt="Sertifikat to'liq ko'rinishi">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL 3: CV / OBYEKTIVKA TO'LIQ MA'LUMOTI
+       ========================================================================== -->
+  <div class="modal-backdrop" id="cv-modal">
+    <div class="modal-container" style="max-width: 860px;">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Ma’lumotnoma (Curriculum Vitae / Obyektivka)</h3>
+          <p style="font-size: 0.85rem; color: var(--gold-secondary); margin-top: 4px;">Xidirova Nargizaxon O‘rinovna — Tarix fanlari doktori (DSc)</p>
+        </div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button class="btn btn-primary btn-sm" onclick="window.print()">
+            <i class="fas fa-print"></i> Chop etish
+          </button>
+          <button class="modal-close-btn modal-close-trigger" aria-label="Yopish">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" style="color: var(--text-primary); font-size: 0.95rem; line-height: 1.7;">
+        
+        <div style="display: flex; gap: 24px; align-items: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-subtle);">
+          <div style="width: 86px; height: 86px; border-radius: 14px; overflow: hidden; border: 2px solid var(--gold-primary); flex-shrink: 0;">
+            <img src="assets/ustoz_portret.jpg" alt="Portret" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <h2 style="font-size: 1.35rem; color: var(--gold-secondary);">Xidirova Nargizaxon O‘rinovna</h2>
+            <p><strong>Tug‘ilgan sanasi:</strong> 1971-yil 21-avgust</p>
+            <p><strong>Ilmiy darajasi:</strong> Tarix fanlari doktori (DSc, 2025), Tarix fanlari nomzodi (PhD, 2006)</p>
+            <p><strong>Hozirgi lavozimi:</strong> Toshkent Gumanitar Fanlar Universiteti, «Aniq va gumanitar fanlar» kafedrasi o‘qituvchisi</p>
+          </div>
+        </div>
+
+        <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 1.12rem;"><i class="fas fa-graduation-cap"></i> Ma’lumoti:</h4>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>2013–2015:</strong> O‘zbekiston Respublikasi Fanlar akademiyasi Tarix instituti, doktorantura (Tarix fanlari doktori diplomi: 04 N-009459).</li>
+          <li><strong>1999–2001:</strong> O‘zR FA Tarix instituti, aspirantura (Tarix fanlari nomzodi diplomi: 01 N-009489).</li>
+          <li><strong>1992–1997:</strong> Farg‘ona davlat universiteti, Tarix fakulteti, tarix o‘qituvchisi (diplom №170009).</li>
+        </ul>
+
+        <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 1.12rem;"><i class="fas fa-briefcase"></i> Mehnat faoliyati:</h4>
+        <ul style="margin-left: 20px; margin-bottom: 20px;">
+          <li><strong>2026-yil sentabrdan:</strong> Toshkent Gumanitar Fanlar Universiteti «Aniq va gumanitar fanlar» kafedrasi o‘qituvchisi.</li>
+          <li><strong>2021–2026:</strong> Nizomiy nomidagi Toshkent davlat pedagogika universiteti, O‘zbekiston tarixi kafedrasi o‘qituvchisi.</li>
+          <li><strong>2020–2021:</strong> O‘zbekiston Milliy universiteti, Falsafa va mantiq kafedrasi, yetakchi ilmiy xodim.</li>
+          <li><strong>2001–2020:</strong> O‘zR Fanlar akademiyasi Tarix instituti, O‘rta asrlar Markaziy Osiyo tarixi bo‘limi katta ilmiy xodimi, davlat loyihalari rahbari.</li>
+          <li><strong>1997–1998:</strong> Qo‘qon davlat instituti, Tarix fakulteti o‘qituvchisi.</li>
+        </ul>
+
+        <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 1.12rem;"><i class="fas fa-globe"></i> Xalqaro tajriba va malaka:</h4>
+        <p style="margin-bottom: 20px;">
+          Hofstra universiteti (AQSh) professori E.Karimov rahbarligida ilmiy tadqiqotlar olib borgan. Open Society Foundations granti doirasida Kenyon kolleji (AQSh, 2012–2013) bilan qo‘shma loyiha amalga oshirgan. Vashington universiteti (Sietl, AQSh), Kembrij universiteti (Buyuk Britaniya), Turkiya, Ozarbayjon, Moskva va Qozog‘istondagi nufuzli xalqaro simpoziumlarda ma’ruzalar bilan ishtirok etgan.
+        </p>
+
+        <h4 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 1.12rem;"><i class="fas fa-language"></i> Tillar:</h4>
+        <p>O‘zbek tili (ona tili), rus tili, fors tili, turkiy/chig‘atoy tili, arab tili, ingliz tili.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
